@@ -1,5 +1,6 @@
 package manager;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.TreeSet;
 import java.util.Map.Entry;
 
@@ -14,12 +15,12 @@ public class Manager {
 	private static Manager manager;
 	private Reader reader;
 	private ArrayList<Circle> circles;
-	private TreeSet<Persona> personas;
+	private HashSet<Persona> personas;
 
 	private Manager () {
 		tiempo = 0;
 		this.circles = new ArrayList<>();
-		this.personas = new TreeSet<>();
+		this.personas = new HashSet<>();
 		this.reader = new Reader("files/entrada.txt");
 	}
 	
@@ -107,8 +108,11 @@ public class Manager {
 	}
 
 	private void showPersonas() {
+		//Array auxiliar ordenado
+		TreeSet<Persona> personasAux = new TreeSet<>();
+		personasAux.addAll(this.personas);
 		System.out.println("--- Mostrando Personas ---");
-		for (Persona p : this.personas) {
+		for (Persona p : personasAux) {
 			System.out.println(p);
 		}
 		System.out.println("--------------------------");
