@@ -80,7 +80,7 @@ public class Circle {
 	}
 
 	public boolean checkParcela(int seccion) {
-		if (this.secciones.get(seccion) != null) {
+		if (this.secciones.get(seccion) != null && this.secciones.get(seccion).getNombre().equalsIgnoreCase(Edificios.REFUGIO.getNombre())) {
 			return true;
 		} else {
 			System.out.println("No hay un edificio en esta parcela");
